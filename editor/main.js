@@ -1,72 +1,116 @@
-// -----------------------------
-// 星空アニメーション
-// -----------------------------
-const canvas = document.getElementById("starfield");
-const ctx = canvas.getContext("2d");
+console.log("THIS IS THE REAL MAIN.JS v9-final take1");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let stars = [];
-
-for (let i = 0; i < 200; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2,
-        speed: Math.random() * 0.5 + 0.2
-    });
-}
-
-function animateStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    stars.forEach(star => {
-        star.y += star.speed;
-        if (star.y > canvas.height) star.y = 0;
-
-        ctx.fillStyle = "white";
-        ctx.fillRect(star.x, star.y, star.size, star.size);
-    });
-
-    requestAnimationFrame(animateStars);
-}
-
-animateStars();
-
-
-// -----------------------------
-// Start AstraPy ボタン
-// -----------------------------
-document.getElementById("start-btn").onclick = () => {
-    window.location.href = "./editor/";
+// ===============================
+// 1. mainブロックの定義
+// ===============================
+Blockly.Blocks['main_block'] = {
+  init: function() {
+    this.appendStatementInput("BODY")
+        .appendField("main()");
+    this.setColour(230);
+    this.setDeletable(false);
+    this.setMovable(false);
+  }
 };
 
+// ===============================
+// 2. code_block の定義
+// ===============================
+Blockly.Blocks['code_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Pythonコード");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput(""), "CODE");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+  }
+};
 
-// -----------------------------
-// version.txt を読み込む
-// -----------------------------
-fetch("./editor/version.txt")
-  .then(response => response.text())
-  .then(text => {
-    const lines = text.trim().split("\n");
+// ===============================
+// 3. Blockly 初期化
+// ===============================
+const workspace = Blockly.inject('workspace', {
+  toolbox: document.getElementById('toolbox'),
+  scrollbars: true,
+  trashcan: true
+});
 
-    // 最新バージョン（最初の行の「 - 」より左側）
-    const latestLine = lines[0];
-    const latestVersion = latestLine.split(" - ")[0];
+// ===============================
+// 4. main ブロックを生成
+// ===============================
+(function createMainBlock() {
+  const block = workspace.newBlock('main_block');
+  block.initSvg();
+  block.render();
+  block.moveBy(20, 20);
+})();
 
-    document.getElementById("version").innerText = "Version: " + latestVersion;
+// ===============================
+// 5. Pyodide 初期化
+// ===============================
+let pyodideReady = false;
+let pyodide = null;
 
-    // 履歴一覧
-    let html = "<ul>";
-    lines.forEach(line => {
-      html += `<li>${line}</li>`;
-    });
-    html += "</ul>";
+(async () => {
+  pyodide = await loadPyodide();
+  pyodideReady = true;
+  console.log("Pyodide loaded");
+})();
 
-    document.getElementById("history").innerHTML = html;
-  })
-  .catch(err => {
-    document.getElementById("version").innerText = "Version: Unknown";
-    document.getElementById("history").innerText = "History not found.";
+// ===============================
+// 6. Python generator（v9 用）
+// ===============================
+Blockly.Python['code_block'] = function(block) {
+  const code = block.getFieldValue('CODE') || "";
+  return Blockly.Python.prefixLines(code, "    ") + "\n";
+};
+
+Blockly.Python['main_block'] = function(block) {
+  const body = Blockly.Python.statementToCode(block, 'BODY');
+  return "def main():\n" +
+         Blockly.Python.prefixLines(body, "    ") +
+         "\nmain()\n";
+};
+
+// ===============================
+// 7. 実行ボタン
+// ===============================
+document.getElementById("run").addEventListener("click", async () => {
+  if (!pyodideReady) return alert("Python 読み込み中…");
+
+  const code = Blockly.Python.workspaceToCode(workspace);
+  const consoleEl = document.getElementById("console");
+  consoleEl.textContent = "";
+
+  // Pyodide の print 出力をコンソールに流す
+  pyodide.setStdout({
+    batched: (msg) => {
+      consoleEl.textContent += msg;
+    }
   });
+
+  pyodide.setStderr({
+    batched: (msg) => {
+      consoleEl.textContent += "エラー: " + msg;
+    }
+  });
+
+  try {
+    await pyodide.runPythonAsync(code);
+  } catch (err) {
+    consoleEl.textContent += "エラー: " + err + "\n";
+  }
+});
+
+// ===============================
+// 8. コード表示ボタン
+// ===============================
+document.getElementById("show-code").addEventListener("click", () => {
+  const code = Blockly.Python.workspaceToCode(workspace);
+  const modal = document.getElementById("code-modal");
+  modal.textContent = code;
+  modal.style.display = "block";
+  modal.onclick = () => modal.style.display = "none";
+});
