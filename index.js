@@ -34,12 +34,14 @@ function animateStars() {
 
 animateStars();
 
+
 // -----------------------------
 // Start AstraPy ボタン
 // -----------------------------
 document.getElementById("start-btn").onclick = () => {
     window.location.href = "./editor/";
 };
+
 
 // -----------------------------
 // version.txt を読み込む
@@ -49,8 +51,11 @@ fetch("./editor/version.txt")
   .then(text => {
     const lines = text.trim().split("\n");
 
-    // 最新バージョン（最初の行）
-    document.getElementById("version").innerText = "Version: " + lines[0];
+    // 最新バージョン（最初の行の「 - 」より左側）
+    const latestLine = lines[0];
+    const latestVersion = latestLine.split(" - ")[0];
+
+    document.getElementById("version").innerText = "Version: " + latestVersion;
 
     // 履歴一覧
     let html = "<ul>";
