@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Akito IDE β260106</title>
+    <link rel="stylesheet" href="style.css?v=260106">
+</head>
+<body>
+
+    <xml id="toolbox" style="display:none">
+        <category name="Python">
+            <block type="code_block"></block>
+        </category>
+    </xml>
+
+    <div id="workspace"></div>
+
+    <div id="console">コンソール</div>
+
+    <div id="code-modal"></div>
+
+    <div id="toolbar">
+        <button id="run">▶ 実行</button>
+        <button id="show-code"><> コード</button>
+        <button id="warnings">⚠ 警告</button>
+    </div>
+
+    <!-- Blockly本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/blockly@9/blockly.min.js"></script>
+
+    <!-- Python generator（v9 の正しいファイル名） -->
+    <script src="https://cdn.jsdelivr.net/npm/blockly@9/python_compressed.js"></script>
+
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+
+    <!-- メインロジック -->
+    <script src="./main.js?v=260106" defer></script>
+
+</body>
+</html>

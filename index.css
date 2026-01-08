@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: black;
+    font-family: 'Consolas', monospace;
+    color: white;
+}
+
+/* 星の背景 */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* 中央コンテンツ */
+#content {
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.title {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+.version {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #0af;
+}
+
+#start-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: #0af;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#start-btn:hover {
+    background: #0cf;
+    transform: scale(1.05);
+}
+
+.section {
+    width: 70%;
+    margin: 80px auto;
+    text-align: left;
+    opacity: 0;
+    animation: fadeInUp 1.5s forwards;
+}
+
+.section h2 {
+    color: #0af;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
