@@ -19,7 +19,18 @@ body {
 /* 中央コンテンツ */
 #content {
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 10vh;
+}
+
+/* ★ 大きなロゴ */
+.big-logo {
+    width: 180px;        /* 大きさは自由に調整可能 */
+    height: auto;
+    display: block;
+    margin: 0 auto 25px auto;
+
+    /* 発光エフェクト（宇宙感UP） */
+    filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.7));
 }
 
 .title {
