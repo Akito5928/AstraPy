@@ -41,6 +41,7 @@ AstraPy IDE を今すぐ試す：
 
 ```md
 ![AstraPy IDE Screenshot](./screenshot.png)
+```
 
 ---
 
@@ -61,6 +62,7 @@ AstraPy は以下の OSS を利用しています。
   https://pyodide.org/
 
 各ライブラリのライセンス全文は `LICENSES/` フォルダにまとめています。
+```
 
 ---
 
