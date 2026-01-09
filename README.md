@@ -37,8 +37,6 @@ AstraPy IDE を今すぐ試す：
 
 ## 🖼 Screenshot
 
-（ここにスクショを貼る）
-
 ```md
 ![AstraPy IDE Screenshot](./screenshot.png)
 ```
