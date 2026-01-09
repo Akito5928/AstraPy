@@ -1,3 +1,5 @@
+![AstraPy Banner](./banner.png)
+
 # AstraPy
 Pythonをブロックで動かすプロジェクト
 
