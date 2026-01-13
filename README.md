@@ -15,6 +15,7 @@ AstraPy は、Python をブロックで動かすための
 
 ブラウザだけ(将来的にローカルアプリも実装)で動作し、  
 教育・創作・実験のすべてをひとつの宇宙に統合することを目指しています。
+![AstraPy Demo](./starlight-execution.gif)
 
 ---
 
