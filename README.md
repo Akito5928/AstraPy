@@ -2,7 +2,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy?ref=badge_small)
 ![CodeQL](https://github.com/Akito5928/AstraPy/actions/workflows/codeql.yml/badge.svg)
 ![pages-build-deployment](https://github.com/Akito5928/AstraPy/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![Documentation Status](https://readthedocs.org/projects/astrapy/badge/?version=latest)](https://astrapy.readthedocs.io/en/latest/)
+[![Documentation Status](https://readthedocs.org/projects/astrapy/badge/?version=latest)](https://astrapy.readthedocs.io/ja/latest/)
 
 # AstraPy  
 The First Star of NexFlow
