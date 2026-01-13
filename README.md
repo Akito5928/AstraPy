@@ -1,4 +1,5 @@
 ![AstraPy Banner](./banner.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy?ref=badge_small)
 
 # AstraPy  
 The First Star of NexFlow
