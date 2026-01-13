@@ -57,14 +57,19 @@ fetch("./editor/version.txt")
 
     document.getElementById("version").innerText = "Version: " + latestVersion;
 
-    // 履歴一覧
-    let html = "<ul>";
-    lines.forEach(line => {
-      html += `<li>${line}</li>`;
-    });
-    html += "</ul>";
+    // 履歴一覧（XSS対策版）
+    const historyEl = document.getElementById("history");
+    historyEl.innerHTML = ""; // 一旦クリア
 
-    document.getElementById("history").innerHTML = html;
+    const ul = document.createElement("ul");
+
+    lines.forEach(line => {
+      const li = document.createElement("li");
+      li.textContent = line; // ← textContent で完全に安全
+      ul.appendChild(li);
+    });
+
+    historyEl.appendChild(ul);
   })
   .catch(err => {
     document.getElementById("version").innerText = "Version: Unknown";
