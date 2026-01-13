@@ -41,6 +41,7 @@ AstraPy IDE を今すぐ試す：
 ## 🖼 Screenshot
 
 ![AstraPy IDE Screenshot](./screenshot.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy?ref=badge_shield)
 
 ---
 
@@ -75,6 +76,9 @@ AstraPy は以下の OSS を利用しています。
 AstraPy は **MIT License** のもとで公開されています。
 
 ---
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAkito5928%2FAstraPy?ref=badge_large)
 
 ## 🤝 Contributing
 
