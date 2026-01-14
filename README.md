@@ -90,12 +90,12 @@ Issue / Pull Request はいつでも歓迎します。
 
 ## 連絡先
 
-アイデアやバグなどはIssueやPull Requestで歓迎しますが
-その他問い合わせることがあればお気軽にDiscordやe-mailなどで
-受け付けるのでぜひ!
-Discord ID "akito5928"
-Discord Server "を作ることを検討しています"
-e-mail "Savasft5928@gmail.com"
+アイデアやバグなどはIssueやPull Requestで歓迎しますが  
+その他問い合わせることがあればお気軽にDiscordやe-mailなどで  
+受け付けるのでぜひ!  
+Discord ID "akito5928"  
+Discord Server "を作ることを検討しています"  
+e-mail "Savasft5928@gmail.com"  
 X: @Akito_5928（低頻度で更新しています）
 
 ---
