@@ -71,6 +71,7 @@ AstraPy は以下の OSS を利用しています。
 - ローカル版を作成し完全にブロックでPythonを動かす 
 - NexFlow 全体との統合  
 - プロジェクト共有ギャラリー  
+- Awesome Listsへの記載
 
 ---
 
@@ -84,3 +85,21 @@ AstraPy は **MIT License** のもとで公開されています。
 
 AstraPy はオープンなプロジェクトです。  
 Issue / Pull Request はいつでも歓迎します。
+
+---
+
+## 連絡先
+
+アイデアやバグなどはIssueやPull Requestで歓迎しますが
+その他問い合わせることがあればお気軽にDiscordやe-mailなどで
+受け付けるのでぜひ!
+Discord ID "akito5928"
+Discord Server "を作ることを検討しています"
+e-mail "Savasft5928@gmail.com"
+X: @Akito_5928（低頻度で更新しています）
+
+---
+
+## その他
+
+現在共同開発者を一応募集しています!詳しくは僕に連絡してください!
